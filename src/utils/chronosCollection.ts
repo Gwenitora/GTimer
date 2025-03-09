@@ -1,3 +1,5 @@
+import { chronoNameAutoFunc } from '../companion/options/chronoNameAuto.js';
+import { ModuleInstance } from '../main.js';
 import VariablesCtrl from './variables.js'
 
 export class Chrono {
@@ -155,6 +157,8 @@ export class Chrono {
     public ResetPauseDecal(): void {
         this.pausedDecal = 0;
     }
+
+    public get Name(): string {return this.name;}
 }
 
 class ChronosCollection {
@@ -178,11 +182,17 @@ class ChronosCollection {
     public addChrono(key: string): Chrono {
         if (this.chronos[key] !== undefined) return this.getChrono(key);
         this.chronos[key] = new Chrono(`Chrono-${key}`);
+        chronoNameAutoFunc();
+        ModuleInstance.self.updateActions().updateFeedbacks().updatePresets();
         return this.getChrono(key);
     }
 
     public getChrono(key: string): Chrono {
         return this.chronos[key];
+    }
+
+    public getChronosNames(): string[] {
+        return Object.keys(this.chronos).sort();
     }
 
     public Update(): void {
@@ -196,6 +206,8 @@ class ChronosCollection {
         VariablesCtrl.del(`Chrono-${key}`);
         VariablesCtrl.del(`Chrono-${key}-Seconds`);
         delete this.chronos[key];
+        chronoNameAutoFunc();
+        ModuleInstance.self.updateActions().updateFeedbacks().updatePresets();
     }
 
     public DeleteAll(): void {

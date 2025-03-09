@@ -1,13 +1,13 @@
 import { SomeCompanionActionInputField } from "@companion-module/base";
 import CompAction, { actionCallback } from "../../managers/actionTemplate.js";
 import ChronosColl from "../../utils/chronosCollection.js";
-import chronoName from "../options/chronoName.js";
+import chronoNameAuto from "../options/chronoNameAuto.js";
 
 class pauseChrono extends CompAction {
     protected id: string = 'pauseChrono';
     protected name: string = 'Pause/Resume Chrono';
     protected description?: string = 'Pause or resume a chrono';
-    protected options: SomeCompanionActionInputField[] = [ ...chronoName.action ];
+    protected options: SomeCompanionActionInputField[] = [ ...chronoNameAuto.action ];
     protected learnTimeout?: number;
 
     protected callback: actionCallback = async (event) => {

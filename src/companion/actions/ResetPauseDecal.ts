@@ -1,12 +1,12 @@
 import ChronosColl from "../../utils/chronosCollection.js";
 import CompAction, { actionCallback } from "../../managers/actionTemplate.js";
-import chronoName from "../options/chronoName.js";
+import chronoNameAuto from "../options/chronoNameAuto.js";
 
 class resetPauseDecal extends CompAction {
     protected id: string = 'resetPauseDecal';
     protected name: string = 'Reset Pauses';
-    protected description?: string = 'Remake your chrono as same timing if you never paused it';
-    protected options = [ ...chronoName.action ];
+    protected description?: string = 'Resets the timer to the same time as if you had never paused it';
+    protected options = [ ...chronoNameAuto.action ];
     protected learnTimeout?: number;
 
     protected callback: actionCallback = async (event) => {

@@ -5,8 +5,8 @@
 	"description": "To control scores and timers for for stream.",
 	"version": "0.0.0",
 	"license": "MIT",
-	"repository": "git+https://github.com/gwenitora/gtimer.git",
-	"bugs": "https://github.com/gwenitora/gtimer/issues",
+	"repository": "git+https://github.com/gwenitora/GTimer.git",
+	"bugs": "https://github.com/gwenitora/GTimer/issues",
 	"maintainers": [
 		{
 			"name": "Gwenitora",

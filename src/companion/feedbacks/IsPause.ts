@@ -1,6 +1,6 @@
 import { SomeCompanionFeedbackInputField } from "@companion-module/base/dist/index.js";
 import CompFeedback, { feedbackCallback, feedbackDefaultStyle, feedbackSubscribe } from "../../managers/feedbackTemplate.js";
-import chronoName from "../options/chronoName.js";
+import chronoNameAuto from "../options/chronoNameAuto.js";
 import dataLink from "../../utils/dataLink.js";
 import ChronosColl from "../../utils/chronosCollection.js";
 
@@ -14,7 +14,7 @@ class isPause extends CompFeedback<'boolean'> {
         bgcolor: 0x0052ff,
         color: 0x000000,
     };
-    protected options: SomeCompanionFeedbackInputField[] = [ ...chronoName.feedback ];
+    protected options: SomeCompanionFeedbackInputField[] = [ ...chronoNameAuto.feedback ];
     protected learnTimeout?: number;
 
     protected callback: feedbackCallback<'boolean'> = async (event) => {
